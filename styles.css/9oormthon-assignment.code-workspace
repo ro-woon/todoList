@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../Downloads/3.js-todo-app"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "9oormthon-assignment"
+	}
+}
