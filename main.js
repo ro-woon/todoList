@@ -13,15 +13,17 @@ function createElement() {
   const item = {
     id: new Date().getTime(),
     text: text,
-    complete: false,
+    checked: false,
   };
 
-  todoList.unshift(item); // 객체 배열에 새로운 아이템을 추가
+  todoList.push(item); // 객체 배열에 새로운 아이템을 추가
 
   list.appendChild(createTask(item)); // div 요소를 list 요소에 추가
 }
 
 function createTask(item) {
+  inputText.value = ""; // input 텍스트 초기화
+
   const container = document.createElement("div"); // div 요소 생성
   container.className = "task";
   // div 요소 생성
@@ -34,6 +36,7 @@ function createTask(item) {
   checkbox.setAttribute("type", "checkbox");
   checkbox.setAttribute("name", "r");
   checkbox.setAttribute("value", "2");
+  if (item.checked) { checkbox.checked = true; }
 
   // label 요소 생성
   const label = document.createElement("label");
@@ -59,6 +62,14 @@ function createTask(item) {
   button.addEventListener("click", () => { // X 버튼 클릭 시 요소 제거
     todoList = todoList.filter((t) => t.id!= item.id);
     container.remove();
+
+    saveToLocalStorage();
+  });
+
+  checkbox.addEventListener("click", () => { 
+    item.checked =!item.checked;
+
+    saveToLocalStorage();
   });
 
   saveToLocalStorage();
@@ -91,4 +102,4 @@ function loadFromLocalStorage() {
 	}
 }
 
-// 클릭 유지 기능 추가 및 디자인 추가
+// 클릭 유지 기능 추가 및 디자인 추가,

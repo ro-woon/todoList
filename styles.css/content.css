@@ -1,6 +1,6 @@
 .checkbox-text {
     --text: #414856;
-    --check: #A16AFF;
+    --check: var(--main-color-);
     --disabled: #C3C8DE;
     --border-radius: 10px;
     border-radius: var(--border-radius);
@@ -266,7 +266,7 @@
 }
 
 .main-content {
-    background-color: #A18AFF;
+    background-color: var(--main-color-);
     height: 98%;
     width: 95%;
     border-bottom-right-radius: 0.8rem;
@@ -338,8 +338,17 @@
 }
 
 #task-list {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 15px;
+    max-height: 400px;;
+    overflow-y: auto; 
+    scroll-behavior: smooth; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+#t::-webkit-scrollbar {
+  display: none; 
 }
 
 .task input[type=text] {
